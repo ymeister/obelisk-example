@@ -1,9 +1,9 @@
-module Main where
+import Obelisk.Backend
 
 import Backend
+import Frontend
 
 
 
 main :: IO ()
-main = do
-  helloWorld
+main = runBackend backend frontend

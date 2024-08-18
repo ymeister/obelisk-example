@@ -1,6 +1,5 @@
-module Common where
+module Common
+  ( module Common
+  ) where
 
-
-
-helloWorld :: IO ()
-helloWorld = putStrLn "Hello world!"
+import Common.Route as Common

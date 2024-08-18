@@ -91,8 +91,12 @@ executable backend
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base
-                    , backend
+    build-depends:    backend
+                    , common
+                    , frontend
+                    --
+                    , base
+                    , obelisk-backend
 
     -- Directories containing source files.
     hs-source-dirs:   app

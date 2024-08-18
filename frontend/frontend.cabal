@@ -68,6 +68,7 @@ library
                       --
                     , base
                     , obelisk-frontend
+                    , obelisk-route
                     , reflex-dom
 
     -- Directories containing source files.
@@ -75,6 +76,10 @@ library
 
     -- Base language which the package is written in.
     default-language: Haskell2010
+    default-extensions:
+      LambdaCase
+      OverloadedStrings
+      TemplateHaskell
 
 executable frontend
     -- Import common warning flags.
@@ -90,8 +95,13 @@ executable frontend
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base
-                    , frontend
+    build-depends:    frontend
+                    , common
+                      --
+                    , base
+                    , obelisk-frontend
+                    , obelisk-route
+                    , reflex-dom
 
     -- Directories containing source files.
     hs-source-dirs:   app

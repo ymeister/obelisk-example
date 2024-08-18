@@ -10,3 +10,5 @@ else
 
 package reflex-dom
   flags: +use-warp -webkit2gtk
+
+multi-repl: True
