@@ -1,0 +1,3 @@
+#!/bin/sh
+
+nix-shell "$(dirname "$0")/../shell.nix" --run "cabal repl backend common frontend"
