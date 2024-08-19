@@ -1,5 +1,3 @@
-module Main where
-
 import Obelisk.Frontend
 import Reflex.Dom
 

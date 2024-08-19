@@ -1,0 +1,17 @@
+#!/bin/sh
+
+dir="$(dirname "$0")"
+
+"$dir/static" &
+static_pid="$!"
+
+"$dir/backend" &
+backend_pid="$!"
+
+function kill_group {
+  PID="$1"
+  [ ! -z "$PID" ] && kill -- -$(ps -o pgid= $PID | grep -o '[0-9]*') &> /dev/null
+}
+
+trap "kill_group $static_pid; kill_group $backend_pid; exit" 1 2 3 6 9 15
+read -r -d '' _ </dev/tty

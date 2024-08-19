@@ -8,6 +8,8 @@ else
     common/
     frontend/
 
+optional-packages: static/manifest/
+
 package reflex-dom
   flags: +use-warp -webkit2gtk
 

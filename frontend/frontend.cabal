@@ -56,6 +56,7 @@ library
 
     -- Modules exported by the library.
     exposed-modules:  Frontend
+                      Frontend.Pages.Main
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -68,6 +69,7 @@ library
                       --
                     , base
                     , obelisk-frontend
+                    , obelisk-generated-static
                     , obelisk-route
                     , reflex-dom
 
@@ -77,9 +79,13 @@ library
     -- Base language which the package is written in.
     default-language: Haskell2010
     default-extensions:
+      DataKinds
+      FlexibleContexts
+      GADTs
       LambdaCase
       OverloadedStrings
       TemplateHaskell
+      TypeApplications
 
 executable frontend
     -- Import common warning flags.

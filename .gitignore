@@ -4,3 +4,6 @@ dist-newstyle
 cabal.project.local
 *.o
 *.hi
+static/manifest
+static/out
+static.assets

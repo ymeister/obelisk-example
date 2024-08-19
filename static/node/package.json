@@ -1,0 +1,12 @@
+{
+    "name": "node-packages"
+  , "version": "0.0.0"
+  , "dependencies": {
+      "color": "*"
+    , "autoprefixer": "*"
+    , "cssnano": "*"
+    , "postcss-cli": "*"
+    , "postcss-import": "*"
+    , "tailwindcss": "*"
+  }
+}

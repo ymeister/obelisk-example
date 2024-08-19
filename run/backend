@@ -1,0 +1,3 @@
+#!/bin/sh
+
+nix-shell "$(dirname "$0")/../shell.nix" --run 'while true; do cabal run backend & pid="$!"; trap "kill $pid; exit" 1 2 3 6 9 15; inotifywait -e modify,create,delete -r backend common frontend static/src && kill "$pid" && sleep 2; done'
