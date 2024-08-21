@@ -10,5 +10,4 @@ rm -rf "$dir/../dist-newstyle" && ln -s "$dir/../dist" "$dir/../dist-newstyle"
 
 rm -rf frontend/frontend.jsexe
 cp -rf dist-js/build/javascript-ghcjs/*/frontend-*/x/frontend/build/frontend/frontend.jsexe frontend/
-sed -i 's#\(window\[".*"\]\)()#\1#g' frontend/frontend.jsexe/all.js
 "$dir/mkAssets" "frontend/frontend.jsexe" "frontend.jsexe.assets"

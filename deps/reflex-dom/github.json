@@ -3,6 +3,6 @@
   "repo": "reflex-dom",
   "branch": "ghc(js)-9.10",
   "private": false,
-  "rev": "546989b6368efd6ecc4f88bcab500b6b6361be28",
-  "sha256": "1w6lp9vr1axpdy51ms58av578bqyyz6v64rapi9w5d6pxr1l9kr3"
+  "rev": "ede863e98247deb8268f15d663292eb8a714437b",
+  "sha256": "1z51gxc77nmnw6ylzkmyqizb4xhnvl6971wi0anm78i81n5aw495"
 }
