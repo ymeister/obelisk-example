@@ -2,4 +2,5 @@
 
 [ -z "$IN_NIX_SHELL" ] && exec nix-shell "$(dirname "$0")/../shell.nix" --run "$(readlink -f "$0")"
 
-cabal repl backend common frontend obelisk-generated-static
+inotifywait -e modify,create,delete -r backend common frontend static/src
+

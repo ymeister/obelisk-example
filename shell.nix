@@ -8,7 +8,7 @@ in project.shellFor {
 
   buildInputs = with pkgs; [
     inotify-tools
-    nodejs-slim_latest
+    nodejs-slim
   ];
 
   # Sellect cross compilers to include.

@@ -1,3 +1,5 @@
 #!/bin/sh
 
-nix-shell "$(dirname "$0")/../shell-hoogle.nix" --run "hoogle server --local"
+[ -z "$IN_NIX_SHELL" ] && exec nix-shell "$(dirname "$0")/../shell-hoogle.nix" --run "$(readlink -f "$0")"
+
+hoogle server --local

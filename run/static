@@ -1,3 +1,8 @@
 #!/bin/sh
 
-nix-shell "$(dirname "$0")/../shell.nix" --run 'while true; do rm -rf static/out; cabal run obelisk-asset-manifest-generate "$(nix-build static --no-out-link)" static/manifest obelisk-generated-static Obelisk.Generated.Static static/out; nix-build -E "with (import static/assets.nix {}); mkAssets static/out" -o static.assets; inotifywait -e modify,create,delete -r frontend static/src; done'
+dir="$(dirname "$0")"
+[ -z "$IN_NIX_SHELL" ] && exec nix-shell "$dir/../shell.nix" --run "$(readlink -f "$0")"
+
+rm -rf static/out
+cabal run obelisk-asset-manifest-generate "$(nix-build static --no-out-link)" static/manifest obelisk-generated-static Obelisk.Generated.Static static/out
+"$dir/mkAssets" "static/out" "static.assets"

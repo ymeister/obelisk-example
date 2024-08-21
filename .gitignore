@@ -1,9 +1,12 @@
 .nix
 dist
 dist-newstyle
+dist-js
 cabal.project.local
 *.o
 *.hi
+frontend/frontend.jsexe
+frontend.jsexe.assets
 static/manifest
 static/out
 static.assets

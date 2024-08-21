@@ -1,17 +1,14 @@
 #!/bin/sh
 
 dir="$(dirname "$0")"
+[ -z "$IN_NIX_SHELL" ] && exec nix-shell "$dir/../shell.nix" --run "$(readlink -f "$0")"
 
-"$dir/static" &
-static_pid="$!"
+while true; do
+  "$dir/static"
+  "$dir/frontend.jsexe"
+  "$dir/backend"
+  trap "pkill backend; exit" 9 15
 
-"$dir/backend" &
-backend_pid="$!"
-
-function kill_group {
-  PID="$1"
-  [ ! -z "$PID" ] && kill -- -$(ps -o pgid= $PID | grep -o '[0-9]*') &> /dev/null
-}
-
-trap "kill_group $static_pid; kill_group $backend_pid; exit" 1 2 3 6 9 15
-read -r -d '' _ </dev/tty
+  "$dir/wait" && pkill backend
+  sleep 2
+done
